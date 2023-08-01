@@ -47,10 +47,9 @@ void movie(){
 				childTicketPrice * noOfChildTiketsSold;
 
 	amountDonated = grossAmount * percentDonation / 100;
-
-	netSaleAmuont = grossAmount - amountDonated;
-
 };
+
+
 
 void movie_output()
 {
@@ -79,6 +78,7 @@ void movie_output()
 
 int main ()
 {
+
 	movie_output();
 
 	return 0;
