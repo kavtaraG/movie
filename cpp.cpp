@@ -14,7 +14,7 @@ string percentage_gross_amount = "Percentage of gross amount donated: ";
 string amount_donated = "Amount donated: ";
 string net_sale = "Net sale: ";
 
-void mov(){
+void movie(){
 	string asterix = "*";
 	string dot = ".";
 	string dolar_sing = "$";
