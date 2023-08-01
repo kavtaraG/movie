@@ -1,45 +1,85 @@
-
 #include <iostream>
 #include <string>
-#include <fstream>
+#include <iostream>
 #include <iomanip>
 
 using namespace std;
 
+string movieName;
+double adultTiketPrice;
+double childTicketPrice;
+int noOfAdultTiketsSold;
+int noOfChildTiketsSold;
+double percentDonation;
+double grossAmount;
+double amountDonated;
+double netSaleAmuont;
 
-string movie = "Movie name: ";
-string tkt_sold = "Number of tikets sold: ";
-string gross_amount = "Gross amount: ";
-string percentage_gross_amount = "Percentage of gross amount donated: ";
-string amount_donated = "Amount donated: ";
-string net_sale = "Net sale: ";
+void movie(){
+	
+	cout << fixed << showpoint << setprecision(2);
 
-void mov(){
-	string asterix = "*";
-	string dot = ".";
-	string dolar_sing = "$";
-	string percent_sing = "%";
+	cout << "Enter the movie name: ";
+	getline(cin, movieName);
+	cout << endl;
 
-	string movie_name = " Journay to mars";
-	int sold_tkt = 2650;
-	double grs_amount = 9150.0;
-	double percentage = 10.0;
-	double donation = 915.0;
-	double sale = 8235.0;
+	cout << "Enter the price of an adult tickets: ";
+	cin >> adultTiketPrice;
+	cout << endl;
 
-	cout << setfill('*');
-	cout << setw(50) << asterix << endl;
-	cout << movie << setw(22) << setfill('.') << dot << movie_name << endl;
-	cout << tkt_sold << setw(23) << setfill('.') << " " << sold_tkt << endl;
-	cout << gross_amount << setw(30) << setfill('.') << " " << setw(1)  << setfill('$') << dolar_sing << " " << grs_amount << endl;
-	cout << percentage_gross_amount << setw(10) << setfill('.') << " " << setw(1) << setfill('%') << percent_sing << " " << percentage << endl;
-	cout << amount_donated << setw(29) << setfill('.') << " " << setw(1) << setfill('$') << dolar_sing << " " << donation << endl;
-	cout << net_sale << setw(34) << setfill('.') << " " << setw(1) << setfill('$') << dolar_sing << " " << sale;
+	cout << "Enter the price of child tickets: ";
+	cin >> childTicketPrice;
+	cout << endl;
+
+	cout << "Enter the number of adult tickets: ";
+	cin >> noOfAdultTiketsSold;
+	cout << endl;
+
+	cout << "Enter the number of child tickets: ";
+	cin >> noOfChildTiketsSold;
+	cout << endl;
+
+	cout << "Enter the percantage of donation: ";
+	cin >> percentDonation;
+	cout << endl;
+
+	grossAmount = adultTiketPrice * noOfAdultTiketsSold + 
+				childTicketPrice * noOfChildTiketsSold;
+
+	amountDonated = grossAmount * percentDonation / 100;
+
+	netSaleAmuont = grossAmount - amountDonated;
 
 };
 
-int main()
+void movie_output()
 {
+	movie();
+
+	cout << "**************************************************" << endl;
+
+	cout << "Movie name: " << setw(33) << setfill('.') << " " << movieName << endl;
+
+	cout << "Number os tickets sold: " << setw(23) << setfill('.') << " " 
+		<< "$" << " " << noOfAdultTiketsSold + noOfChildTiketsSold << endl;
+
+	cout << "Gross amount: " << setw(33) << setfill('.') << " "  << "$"  
+		<< " " << grossAmount << endl;
+
+	cout << "Percantange of gross amount donated: " << setw(10) << setfill('.') 
+		<< " " << "%" << " " << percentDonation << endl;
+
+	cout << "Amount donated: " << setw(31) << setfill('.') << " "
+		<< "$" << " " << amountDonated << endl;
+
+	cout << "Net sale: " << setw(37) << setfill('.') << " " << "$" 
+		<< " " << netSaleAmuont;
+};
+
+
+int main ()
+{
+	movie_output();
 
 	return 0;
 }
