@@ -40,6 +40,6 @@ void mov(){
 
 int main()
 {
-
+	movie();
 	return 0;
 }
